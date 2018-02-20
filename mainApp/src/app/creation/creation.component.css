@@ -1,0 +1,42 @@
+#wrapper{
+    width: 500px;
+    border: 1px solid black;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 30px;
+}
+
+form{
+    margin-bottom: 30px;
+}
+.btn{
+    float: right;
+    margin: 5px 25px 5px 5px;
+    width: 60px;
+    height: 35px;
+    font-size: 11pt;
+}
+
+.content{
+    font-size: 13pt;
+}
+
+#title_text, #price_text, #imageUrl_text{
+    height: 20px;
+    font-size: 10pt;
+}
+
+#title_text{
+    margin-left: 80px;
+    margin-bottom: 10px;
+
+}
+
+#price_text{
+    margin-left: 75px;
+    margin-bottom: 10px;
+}
+
+#imageUrl_text{
+    margin-left: 30px;
+}

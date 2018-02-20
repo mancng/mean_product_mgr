@@ -1,3 +1,10 @@
-<p>
-  list works!
-</p>
+<div id="wrapper">
+  <h1>Products List</h1>
+  <div id="products_wrapper" *ngFor="let x of products">
+    <img class="image" src="{{x.imageUrl}}" alt="Leica">
+    <h3>{{x.title}}</h3>
+    <h3>${{x.price}}</h3>
+    <button class="btn">Edit</button>
+    <button class="btn">Delete</button>
+  </div>
+</div>

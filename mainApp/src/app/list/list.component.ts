@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  products: any = [];
+
+  constructor(private _httpService: HttpService) { }
 
   ngOnInit() {
+    this.getProductsFromService();
+  }
+
+  getProductsFromService(){
+    let observable = this._httpService.getProducts()
+    observable.subscribe(data => {
+      this.products = data;
+    })
   }
 
 }
