@@ -187,7 +187,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/creation/creation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"wrapper\">\n  <h1>Create a New Product</h1>\n  <form (submit)=\"addProduct()\">\n    <span class=\"content\">Title</span><input id=\"title_text\" type=\"text\" name=\"title\" [(ngModel)]=\"productTitle\"><br>\n    <span class=\"content\">Price</span><input id=\"price_text\" type=\"text\" name=\"price\" [(ngModel)]=\"productPrice\"><br>\n    <span class=\"content\">Image URL</span><input id=\"imageUrl_text\" type=\"text\" name=\"imageUrl\" [(ngModel)]=\"productImageUrl\"><br>\n    <button class=\"btn\" (submit)=\"addProduct()\">Create</button>\n    <button class=\"btn\">Cancel</button>\n  </form>\n</div>"
+module.exports = "<div id=\"wrapper\">\n  <h1>Create a New Product</h1>\n  <form (submit)=\"addProduct()\">\n    <span class=\"content\">Title</span><input id=\"title_text\" type=\"text\" name=\"title\" [(ngModel)]=\"productTitle\"><br>\n    <span class=\"content\">Price</span><input id=\"price_text\" type=\"text\" name=\"price\" [(ngModel)]=\"productPrice\"><br>\n    <span class=\"content\">Image URL</span><input id=\"imageUrl_text\" type=\"text\" name=\"imageUrl\" [(ngModel)]=\"productImageUrl\"><br>\n    <button class=\"btn\" (submit)=\"addProduct()\">Create</button>\n    <button class=\"btn\" [routerLink]=\"['/']\">Cancel</button>\n  </form>\n</div>"
 
 /***/ }),
 
