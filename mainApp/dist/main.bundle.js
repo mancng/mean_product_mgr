@@ -272,7 +272,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/edit/edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"wrapper\">\n    <h1>Edit Product</h1>\n    <form (submit)=\"addProduct()\">\n      <span class=\"content\">Title</span><input id=\"title_text\" type=\"text\" name=\"title\" [(ngModel)]=\"productTitle\"><br>\n      <span class=\"content\">Price</span><input id=\"price_text\" type=\"text\" name=\"price\" [(ngModel)]=\"productPrice\"><br>\n      <span class=\"content\">Image URL</span><input id=\"imageUrl_text\" type=\"text\" name=\"imageUrl\" [(ngModel)]=\"productImageUrl\"><br>\n      <button class=\"btn\" (click)=\"updateProduct()\">Update</button>\n      <button class=\"btn\" (click)=\"deleteProduct()\">Delete</button>\n    </form>\n    <p id=\"ptag\" *ngIf=\"errorMessage != undefined\">\n      {{errorMessage}}\n    </p>\n  </div>\n\n\n"
+module.exports = "<div id=\"wrapper\">\n    <h1>Edit Product</h1>\n    <form>\n      <span class=\"content\">Title</span><input id=\"title_text\" type=\"text\" name=\"title\" [(ngModel)]=\"productTitle\"><br>\n      <span class=\"content\">Price</span><input id=\"price_text\" type=\"text\" name=\"price\" [(ngModel)]=\"productPrice\"><br>\n      <span class=\"content\">Image URL</span><input id=\"imageUrl_text\" type=\"text\" name=\"imageUrl\" [(ngModel)]=\"productImageUrl\"><br>\n      <button class=\"btn\" (click)=\"updateProduct()\">Update</button>\n      <button class=\"btn\" (click)=\"deleteProduct()\">Delete</button>\n    </form>\n    <p id=\"ptag\" *ngIf=\"errorMessage != undefined\">\n      {{errorMessage}}\n    </p>\n  </div>\n\n\n"
 
 /***/ }),
 
@@ -330,7 +330,7 @@ var EditComponent = /** @class */ (function () {
             }
             else {
                 console.log("Updated successfully");
-                _this._router.navigate(['/products']);
+                _this._router.navigate(['products']);
             }
         });
     };
@@ -344,7 +344,7 @@ var EditComponent = /** @class */ (function () {
             }
             else {
                 console.log("Deleted successfully");
-                _this._router.navigate(['/']);
+                _this._router.navigate(['products']);
             }
         });
     };

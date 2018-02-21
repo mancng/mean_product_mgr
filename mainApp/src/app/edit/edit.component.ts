@@ -46,7 +46,7 @@ export class EditComponent implements OnInit {
         // this._router.navigate(['/products']);
       }else {
         console.log("Updated successfully");
-        this._router.navigate(['/products']);
+        this._router.navigate(['products']);
       }
     })
   }
@@ -59,7 +59,7 @@ export class EditComponent implements OnInit {
         console.log("Got error when deleting");
       } else {
         console.log("Deleted successfully")
-        this._router.navigate(['/']);
+        this._router.navigate(['products']);
       }
     })
   }
