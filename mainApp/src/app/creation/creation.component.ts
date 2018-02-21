@@ -13,6 +13,8 @@ export class CreationComponent implements OnInit {
   productTitle: string;
   productPrice: number;
   productImageUrl: string;
+  // errorMessages: any[] = [];
+  errorMessage: string;
 
   constructor(private _httpService: HttpService, private _router: Router) { }
 
@@ -24,10 +26,13 @@ export class CreationComponent implements OnInit {
 
     this._httpService.addProduct(productToAdd)
     .subscribe((responseData:any)=>{
-      console.log(responseData);
-      this._router.navigate(['products']);
+      if(responseData.error){
+        console.log(responseData);
+        this.errorMessage = responseData.error.message;
+      } else {
+        this._router.navigate(['products']);
+      }
     })
-
   }
 
 }

@@ -7,6 +7,9 @@
       <button class="btn" (click)="updateProduct()">Update</button>
       <button class="btn" (click)="deleteProduct()">Delete</button>
     </form>
+    <p id="ptag" *ngIf="errorMessage != undefined">
+      {{errorMessage}}
+    </p>
   </div>
 
 

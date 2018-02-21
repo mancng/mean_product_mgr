@@ -5,6 +5,9 @@
     <span class="content">Price</span><input id="price_text" type="text" name="price" [(ngModel)]="productPrice"><br>
     <span class="content">Image URL</span><input id="imageUrl_text" type="text" name="imageUrl" [(ngModel)]="productImageUrl"><br>
     <button class="btn" (submit)="addProduct()">Create</button>
-    <button class="btn" [routerLink]="['/list']">Cancel</button>
+    <button class="btn" [routerLink]="['/products']">Cancel</button>
   </form>
+  <p id="ptag" *ngIf="errorMessage != undefined">
+    {{errorMessage}}
+  </p>
 </div>

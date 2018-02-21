@@ -179,7 +179,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#wrapper{\n    width: 500px;\n    border: 1px solid black;\n    padding: 30px;\n    margin-top: 30px;\n    border-radius: 30px;\n}\n\nform{\n    margin-bottom: 30px;\n}\n\n.btn{\n    float: right;\n    margin: 5px 25px 5px 5px;\n    width: 60px;\n    height: 35px;\n    font-size: 11pt;\n}\n\n.content{\n    font-size: 13pt;\n}\n\n#title_text, #price_text, #imageUrl_text{\n    height: 20px;\n    font-size: 10pt;\n}\n\n#title_text{\n    margin-left: 80px;\n    margin-bottom: 10px;\n\n}\n\n#price_text{\n    margin-left: 75px;\n    margin-bottom: 10px;\n}\n\n#imageUrl_text{\n    margin-left: 30px;\n}", ""]);
+exports.push([module.i, "#wrapper{\n    width: 500px;\n    border: 1px solid black;\n    padding: 30px;\n    margin-top: 30px;\n    border-radius: 30px;\n}\n\nform{\n    margin-bottom: 60px;\n}\n\n.btn{\n    float: right;\n    margin: 5px 25px 5px 5px;\n    width: 60px;\n    height: 35px;\n    font-size: 11pt;\n}\n\n.content{\n    font-size: 13pt;\n}\n\n#title_text, #price_text, #imageUrl_text{\n    height: 20px;\n    font-size: 10pt;\n}\n\n#title_text{\n    margin-left: 80px;\n    margin-bottom: 10px;\n\n}\n\n#price_text{\n    margin-left: 75px;\n    margin-bottom: 10px;\n}\n\n#imageUrl_text{\n    margin-left: 30px;\n}\n\n#ptag{\n    color: red;\n}", ""]);
 
 // exports
 
@@ -192,7 +192,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/creation/creation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"wrapper\">\n  <h1>Create a New Product</h1>\n  <form (submit)=\"addProduct()\">\n    <span class=\"content\">Title</span><input id=\"title_text\" type=\"text\" name=\"title\" [(ngModel)]=\"productTitle\"><br>\n    <span class=\"content\">Price</span><input id=\"price_text\" type=\"text\" name=\"price\" [(ngModel)]=\"productPrice\"><br>\n    <span class=\"content\">Image URL</span><input id=\"imageUrl_text\" type=\"text\" name=\"imageUrl\" [(ngModel)]=\"productImageUrl\"><br>\n    <button class=\"btn\" (submit)=\"addProduct()\">Create</button>\n    <button class=\"btn\" [routerLink]=\"['/list']\">Cancel</button>\n  </form>\n</div>"
+module.exports = "<div id=\"wrapper\">\n  <h1>Create a New Product</h1>\n  <form (submit)=\"addProduct()\">\n    <span class=\"content\">Title</span><input id=\"title_text\" type=\"text\" name=\"title\" [(ngModel)]=\"productTitle\"><br>\n    <span class=\"content\">Price</span><input id=\"price_text\" type=\"text\" name=\"price\" [(ngModel)]=\"productPrice\"><br>\n    <span class=\"content\">Image URL</span><input id=\"imageUrl_text\" type=\"text\" name=\"imageUrl\" [(ngModel)]=\"productImageUrl\"><br>\n    <button class=\"btn\" (submit)=\"addProduct()\">Create</button>\n    <button class=\"btn\" [routerLink]=\"['/products']\">Cancel</button>\n  </form>\n  <p id=\"ptag\" *ngIf=\"errorMessage != undefined\">\n    {{errorMessage}}\n  </p>\n</div>"
 
 /***/ }),
 
@@ -227,8 +227,13 @@ var CreationComponent = /** @class */ (function () {
         var productToAdd = { title: this.productTitle, price: this.productPrice, imageUrl: this.productImageUrl };
         this._httpService.addProduct(productToAdd)
             .subscribe(function (responseData) {
-            console.log(responseData);
-            _this._router.navigate(['products']);
+            if (responseData.error) {
+                console.log(responseData);
+                _this.errorMessage = responseData.error.message;
+            }
+            else {
+                _this._router.navigate(['products']);
+            }
         });
     };
     CreationComponent = __decorate([
@@ -254,7 +259,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#wrapper{\n    width: 500px;\n    border: 1px solid black;\n    padding: 30px;\n    margin-top: 30px;\n    border-radius: 30px;\n}\n\nform{\n    margin-bottom: 30px;\n}\n\n.btn{\n    float: right;\n    margin: 5px 25px 5px 5px;\n    width: 70px;\n    height: 35px;\n    font-size: 11pt;\n}\n\n.content{\n    font-size: 13pt;\n}\n\n#title_text, #price_text, #imageUrl_text{\n    height: 20px;\n    font-size: 10pt;\n}\n\n#title_text{\n    margin-left: 80px;\n    margin-bottom: 10px;\n\n}\n\n#price_text{\n    margin-left: 75px;\n    margin-bottom: 10px;\n}\n\n#imageUrl_text{\n    margin-left: 30px;\n}\n", ""]);
+exports.push([module.i, "#wrapper{\n    width: 500px;\n    border: 1px solid black;\n    padding: 30px;\n    margin-top: 30px;\n    border-radius: 30px;\n}\n\nform{\n    margin-bottom: 60px;\n}\n\n.btn{\n    float: right;\n    margin: 5px 25px 5px 5px;\n    width: 70px;\n    height: 35px;\n    font-size: 11pt;\n}\n\n.content{\n    font-size: 13pt;\n}\n\n#title_text, #price_text, #imageUrl_text{\n    height: 20px;\n    font-size: 10pt;\n}\n\n#title_text{\n    margin-left: 80px;\n    margin-bottom: 10px;\n\n}\n\n#price_text{\n    margin-left: 75px;\n    margin-bottom: 10px;\n}\n\n#imageUrl_text{\n    margin-left: 30px;\n}\n\n#ptag{\n    color: red;\n}", ""]);
 
 // exports
 
@@ -267,7 +272,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/edit/edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"wrapper\">\n    <h1>Edit Product</h1>\n    <form (submit)=\"addProduct()\">\n      <span class=\"content\">Title</span><input id=\"title_text\" type=\"text\" name=\"title\" [(ngModel)]=\"productTitle\"><br>\n      <span class=\"content\">Price</span><input id=\"price_text\" type=\"text\" name=\"price\" [(ngModel)]=\"productPrice\"><br>\n      <span class=\"content\">Image URL</span><input id=\"imageUrl_text\" type=\"text\" name=\"imageUrl\" [(ngModel)]=\"productImageUrl\"><br>\n      <button class=\"btn\" (click)=\"updateProduct()\">Update</button>\n      <button class=\"btn\" (click)=\"deleteProduct()\">Delete</button>\n    </form>\n  </div>\n\n\n"
+module.exports = "<div id=\"wrapper\">\n    <h1>Edit Product</h1>\n    <form (submit)=\"addProduct()\">\n      <span class=\"content\">Title</span><input id=\"title_text\" type=\"text\" name=\"title\" [(ngModel)]=\"productTitle\"><br>\n      <span class=\"content\">Price</span><input id=\"price_text\" type=\"text\" name=\"price\" [(ngModel)]=\"productPrice\"><br>\n      <span class=\"content\">Image URL</span><input id=\"imageUrl_text\" type=\"text\" name=\"imageUrl\" [(ngModel)]=\"productImageUrl\"><br>\n      <button class=\"btn\" (click)=\"updateProduct()\">Update</button>\n      <button class=\"btn\" (click)=\"deleteProduct()\">Delete</button>\n    </form>\n    <p id=\"ptag\" *ngIf=\"errorMessage != undefined\">\n      {{errorMessage}}\n    </p>\n  </div>\n\n\n"
 
 /***/ }),
 
@@ -320,6 +325,7 @@ var EditComponent = /** @class */ (function () {
             console.log("ONE MORE STEP FURTHER");
             if (responseData.error) {
                 console.log("Error editing product: " + responseData.error);
+                _this.errorMessage = responseData.error.message;
                 // this._router.navigate(['/products']);
             }
             else {

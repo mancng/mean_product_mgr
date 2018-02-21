@@ -14,6 +14,7 @@ export class EditComponent implements OnInit {
   productId: string;
   productPrice: number;
   productImageUrl: string;
+  errorMessage: string;
 
   constructor(private _route: ActivatedRoute, private _httpService: HttpService, private _router: Router) { }
 
@@ -41,6 +42,7 @@ export class EditComponent implements OnInit {
       console.log("ONE MORE STEP FURTHER")
       if(responseData.error){
         console.log("Error editing product: " + responseData.error);
+        this.errorMessage = responseData.error.message;
         // this._router.navigate(['/products']);
       }else {
         console.log("Updated successfully");
