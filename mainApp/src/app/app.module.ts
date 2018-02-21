@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { CreationComponent } from './creation/creation.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CreationComponent } from './creation/creation.component';
     AppComponent,
     HomeComponent,
     ListComponent,
-    CreationComponent
+    CreationComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

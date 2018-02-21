@@ -1,10 +1,14 @@
 <div id="wrapper">
   <h1>Products List</h1>
   <div id="products_wrapper" *ngFor="let x of products">
-    <img class="image" src="{{x.imageUrl}}" alt="Leica">
+    <div id="image_div">
+        <img class="image" src="{{x.imageUrl}}" alt="{{x.title}}">
+    </div>
     <h3>{{x.title}}</h3>
     <h3>${{x.price}}</h3>
-    <button class="btn">Edit</button>
-    <button class="btn">Delete</button>
+    <button class="btn" [routerLink]="['edit/', x._id]">Edit</button>
+    <button class="btn" (click)="deleteProduct(x._id)">Delete</button>
   </div>
 </div>
+
+<!-- http://www.tidalimpex.com/blog/wp-content/uploads/2017/01/Tidal-Impex-Cavendish-Banana-300x194.png -->

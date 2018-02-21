@@ -65,8 +65,10 @@ app.post('/api/new', function(req, res){
 app.put('/api/edit/:id', function(req, res){
     Product.update({_id: req.params.id}, req.body, {runValidators: true}, function(err){
         if(err){
+            console.log("error updating product")
             res.json({message: "Error", error: err});
         } else {
+            console.log("updated successfully")
             res.json({message: "Successfully updated"});
         }
     })

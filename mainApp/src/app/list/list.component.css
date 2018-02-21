@@ -12,6 +12,13 @@
     object-fit: contain;
 }
 
+#image_div{
+    width: 130px;
+    height: 110px;
+    margin-left: 25px;
+    align-items: center;
+}
+
 #products_wrapper{
     margin: 10px;
     padding: 20px;

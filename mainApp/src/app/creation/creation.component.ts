@@ -25,7 +25,7 @@ export class CreationComponent implements OnInit {
     this._httpService.addProduct(productToAdd)
     .subscribe((responseData:any)=>{
       console.log(responseData);
-      this._router.navigate(['list']);
+      this._router.navigate(['products']);
     })
 
   }

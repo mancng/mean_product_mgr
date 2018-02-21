@@ -23,4 +23,19 @@ export class ListComponent implements OnInit {
     })
   }
 
+  deleteProduct(id){
+    this._httpService.deleteProduct(id)
+    .subscribe((responseData: any)=>{
+      if(responseData.error){
+        console.log("Got error when deleting");
+      } else {
+        console.log("Deleted successfully")
+        this.getProductsFromService();
+      }
+    })
+    
+  }
+
+
+
 }
